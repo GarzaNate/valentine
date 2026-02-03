@@ -33,7 +33,9 @@ const QuestionPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start py-12 gap-8 relative bg-[#f0a6ca] font-inter">
-      <h1 className="text-6xl font-extrabold animate-bounce font-playfair">Ejah Maria</h1>
+      <h1 className="text-6xl font-extrabold animate-bounce font-playfair">
+        Ejah Maria
+      </h1>
 
       <div className="w-full max-w-3xl h-80 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
         <img
