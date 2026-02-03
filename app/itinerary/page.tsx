@@ -27,28 +27,25 @@ const ItineraryPage = () => {
       })
 
       if (response.ok) {
-        setIsConfirmed(true)
-        setConfirmationMessage("Your Valentine's date is confirmed 💘")
-      } else {
-        setConfirmationMessage('Failed to confirm. Please try again.')
+        // Navigate to save-the-date page instead of showing message
+        router.push('/save-the-date')
       }
     } catch (error) {
       console.error('Error confirming date:', error)
-      setConfirmationMessage('An error occurred. Please try again.')
     } finally {
       setIsLoading(false)
     }
   }
 
   const cards = [
-    { title: 'Pottery Painting', description: 'We\'ll each put our own spin on a piece of pottery from Paint the Town while at home watching a movie of your choice. Snacks are 100% included.', src: potteryPic.src },
-    { title: 'Dinner', description: 'Dinner for tonight will be at Din Tai Fung at 7:00PM. Hope you\'re ready for some mf soup dumpings.', src: dinner.src },
-    { title: 'Top Golf', description: 'We\'ll be finishing the night showing off our insane golf skills and it totally won\'t be a competition.', src: topGolf.src },
+    { title: 'Pottery Painting 🎨', description: 'We\'ll each put our own spin on a piece of pottery from Paint the Town while at home watching a movie of your choice. Snacks are 100% included.', src: potteryPic.src },
+    { title: 'Dinner 🍽️', description: 'Dinner for tonight will be at Din Tai Fung at 7:00PM. Hope you\'re ready for some mf soup dumpings.', src: dinner.src },
+    { title: 'Top Golf 🏌️', description: 'We\'ll be finishing the night showing off our insane golf skills and it totally won\'t be a competition.', src: topGolf.src },
   ]
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-12 px-6 gap-12 bg-[#f0a6ca] font-playfair">
-      <h1 className="text-6xl font-bold animate-bounce">Valentine Itinerary</h1>
+    <div className="min-h-screen flex flex-col items-center py-12 px-6 gap-12 bg-[#f0a6ca] font-inter">
+      <h1 className="text-6xl font-bold animate-bounce font-playfair">Valentine Itinerary</h1>
 
       <div className="w-full max-w-4xl h-80 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
         <img
@@ -84,14 +81,14 @@ const ItineraryPage = () => {
 
       <button
         onClick={handleConfirmDate}
-        disabled={isLoading || isConfirmed}
+        disabled={isLoading}
         className={`px-8 py-4 text-lg font-bold rounded-lg transition-colors ${
-          isConfirmed
-            ? 'bg-green-500 text-white cursor-not-allowed'
+          isLoading
+            ? 'bg-gray-500 text-white cursor-not-allowed'
             : 'bg-blue-500 hover:bg-blue-600 text-white'
         }`}
       >
-        {isConfirmed ? '✓ Confirmed' : isLoading ? 'Confirming...' : 'Confirm Date'}
+        {isLoading ? 'Confirming...' : 'Confirm Date'}
       </button>
 
       {confirmationMessage && (
