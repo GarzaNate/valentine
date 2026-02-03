@@ -41,7 +41,7 @@ const ItineraryPage = () => {
     {
       title: "Dinner 🍽️",
       description:
-        "Dinner for tonight will be at Din Tai Fung at 7:00PM. Hope you're ready for some mf soup dumpings.",
+        "Dinner for tonight will be at Din Tai Fung at 4:30PM. Hope you're ready for some mf soup dumpings.",
       src: dinner.src,
     },
     {
